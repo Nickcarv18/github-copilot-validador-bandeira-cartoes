@@ -1,0 +1,230 @@
+@use '../variables' as *;
+
+:host {
+  display: block;
+}
+
+.page-container {
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom right, $background, lighten($background, 5%));
+  position: relative;
+  overflow: hidden;
+}
+
+.background-gradient {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to bottom right, rgba($primary, 0.05), transparent, rgba($primary, 0.1));
+}
+
+.blur-circle-1, .blur-circle-2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(3rem);
+}
+.blur-circle-1 {
+  top: 25%;
+  left: 25%;
+  width: 24rem;
+  height: 24rem;
+  background-color: rgba($primary, 0.05);
+}
+.blur-circle-2 {
+  bottom: 25%;
+  right: 25%;
+  width: 20rem;
+  height: 20rem;
+  background-color: rgba($primary, 0.1);
+}
+
+.content-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  &-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: $foreground;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+
+    @media (min-width: 768px) {
+      font-size: 3rem;
+    }
+
+    .icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      color: $primary;
+    }
+  }
+
+  &-subtitle {
+    font-size: 1.25rem;
+    color: $muted-foreground;
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  max-width: 1152px;
+  margin: 0 auto;
+  align-items: start;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: 1024px) {
+    text-align: left;
+  }
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $foreground;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  color: $muted-foreground;
+}
+
+.card-visualization-section, .form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.credit-card-component {
+  transform: scale(1);
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.about-accordion {
+  background-color: rgba($card, 0.5);
+  border-radius: 1rem;
+  border: 1px solid $border;
+  backdrop-filter: blur(4px);
+}
+
+.accordion-item {
+  border: none;
+}
+
+.accordion-trigger {
+  padding: 1rem 1.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: $foreground;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.accordion-content {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .content-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: $foreground;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.brand-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  &.inactive {
+    background-color: rgba($primary, 0.5);
+  }
+  &.active {
+    background-color: $primary;
+    box-shadow: 0 0 10px rgba($primary, 0.5);
+    transform: scale(1.25);
+  }
+}
+
+span.inactive-text {
+  color: $muted-foreground;
+  transition: all 0.3s ease;
+}
+
+span.active-text {
+  color: $primary;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.how-it-works-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: $muted-foreground;
+}
+
+.placeholder-text {
+  padding: 4rem;
+  border: 2px dashed $border;
+  border-radius: 1rem;
+  color: $muted-foreground;
+  text-align: center;
+  width: 100%;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}

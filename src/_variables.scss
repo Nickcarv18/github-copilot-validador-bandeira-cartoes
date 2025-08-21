@@ -1,0 +1,42 @@
+$body-color: hsl(220, 26%, 14%);         // #111827
+$form-color: hsl(220, 13%, 18%);         // #1F2937
+$button-color: hsl(271, 81%, 56%);       // #9333ea
+$label-color: hsl(210, 20%, 95%);        // #F3F4F6
+$placeholder-color: hsl(220, 9%, 65%);   // #9CA3AF
+$status-error: hsl(349, 76%, 76%);       // #FB7185
+$border-form: hsl(217, 19%, 27%);        // #374151
+$name-card-color: hsl(210, 20%, 98%);    // #F9FAFB
+$border-input-default: hsl(217, 19%, 27%);// #374151
+$border-input-focus: hsl(271, 81%, 56%); // #9333ea
+
+$gradient-card: linear-gradient(135deg, hsla(271, 81%, 56%, 0.8), hsla(271, 81%, 66%, 0.6));
+$gradient-bg: linear-gradient(135deg, $body-color, hsl(220, 26%, 16%));
+$shadow-card: 0 25px 50px -12px hsla(271, 81%, 56%, 0.25);
+$shadow-form: 0 20px 25px -5px hsla(220, 26%, 10%, 0.4);
+$transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+$background: $body-color;
+$foreground: $label-color;
+$card: $form-color;
+$card-foreground: $label-color;
+$primary: $button-color;
+$primary-foreground: $name-card-color;
+$muted: $placeholder-color;
+$muted-foreground: $placeholder-color;
+$border: $border-form;
+$input: $border-input-default;
+$ring: $border-input-focus;
+$destructive: $status-error;
+$destructive-foreground: $name-card-color;
+
+$radius: 1rem;
+
+$sidebar-background: hsl(0, 0%, 98%);
+$sidebar-foreground: hsl(240, 5.3%, 26.1%);
+$sidebar-primary: hsl(240, 5.9%, 10%);
+$sidebar-primary-foreground: hsl(0, 0%, 98%);
+$sidebar-accent: hsl(240, 4.8%, 95.9%);
+$sidebar-accent-foreground: hsl(240, 5.9%, 10%);
+$sidebar-border: hsl(220, 13%, 91%);
+$sidebar-ring: hsl(217.2, 91.2%, 59.8%);

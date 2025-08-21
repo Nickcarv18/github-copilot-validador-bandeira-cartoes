@@ -1,0 +1,78 @@
+<div class="card-form-container">
+  <div class="form-group">
+    <label for="cardNumber" class="form-label">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><rect width="20" height="14" x="2" y="5" rx="2" /><line x1="2" x2="22" y1="10" y2="10" /></svg>
+      Número do Cartão
+    </label>
+    <input
+      id="cardNumber"
+      type="text"
+      placeholder="0000 0000 0000 0000"
+      [value]="cardNumber()"
+      (input)="onCardNumberInput($event)"
+      class="form-input"
+      maxlength="19"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="expiryDate" class="form-label">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+      Data de Validade
+    </label>
+    <input
+      id="expiryDate"
+      type="text"
+      placeholder="MM/AA"
+      [value]="expiryDate()"
+      (input)="onExpiryDateInput($event)"
+      class="form-input"
+      maxlength="5"
+    />
+  </div>
+
+  <div *ngIf="isCardNumberLengthValid()" class="status-container">
+    <h3 class="status-title">Status da Validação</h3>
+
+    <div class="status-items">
+      <div *ngIf="cardBrand()" class="status-item">
+        <span class="status-label">Bandeira:</span>
+        <span class="badge badge--brand">{{ getBrandDisplayName(cardBrand()) }}</span>
+      </div>
+
+      <div *ngIf="isCardNumberLengthValid()" class="status-item">
+        <span class="status-label">Número:</span>
+        <span class="badge" [ngClass]="{
+          'badge--valid': isLuhnValid(),
+          'badge--invalid': !isLuhnValid()
+        }">
+          <ng-container *ngIf="isLuhnValid(); else invalidLuhn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="badge-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>Válido</span>
+          </ng-container>
+          <ng-template #invalidLuhn>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="badge-icon"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+            <span>Inválido</span>
+          </ng-template>
+        </span>
+      </div>
+
+      <div *ngIf="expiryDate().length === 5" class="status-item">
+        <span class="status-label">Status:</span>
+        <span class="badge" [ngClass]="{
+          'badge--valid': !isExpired(),
+          'badge--invalid': isExpired()
+        }">
+           <ng-container *ngIf="!isExpired(); else expired">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="badge-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>Válido</span>
+          </ng-container>
+          <ng-template #expired>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="badge-icon"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+            <span>Expirado</span>
+          </ng-template>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

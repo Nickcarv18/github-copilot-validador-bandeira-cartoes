@@ -1,0 +1,32 @@
+<div class="accordion-container">
+  <button class="accordion-trigger" (click)="toggleAccordion()">
+    Sobre o Validador
+    <span class="arrow-icon" [class.rotated]="isOpen()">›</span>
+  </button>
+
+  <div *ngIf="isOpen()" class="accordion-content">
+    <div class="content-wrapper">
+      <div>
+        <h4 class="content-title">Bandeiras Suportadas</h4>
+        <div class="brands-grid">
+          <div *ngFor="let brand of brands" class="brand-item">
+            <div class="brand-dot" [class.active]="activeBrandKey === brand.key"></div>
+            <span class="brand-name" [class.active]="activeBrandKey === brand.key">
+              {{ brand.name }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="content-title">Como funciona</h4>
+        <div class="how-it-works-list">
+          <p>• A bandeira é detectada automaticamente pelos primeiros dígitos</p>
+          <p>• O número é validado usando o algoritmo de Luhn</p>
+          <p>• A data de validade é verificada contra a data atual</p>
+          <p>• O cartão visual é atualizado em tempo real</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

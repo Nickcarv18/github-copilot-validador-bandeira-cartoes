@@ -1,0 +1,115 @@
+@use '../../../variables' as *;
+
+.card-form-container {
+  padding: 1.5rem;
+  background-color: $card;
+  border: 1px solid $border;
+  border-radius: $radius;
+  box-shadow: $shadow-form;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $foreground;
+  display: flex;
+  align-items: center;
+
+  .icon {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+  }
+}
+
+.form-input {
+  background-color: $background;
+  border: 1px solid $input;
+  padding: 0.75rem 1rem;
+  border-radius: calc($radius / 2);
+  color: $foreground;
+  font-family: monospace;
+  font-size: 1.125rem; // text-lg
+  letter-spacing: 0.05em; // tracking-wider
+  transition: all 0.3s ease;
+
+  &::placeholder {
+    color: $muted-foreground;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $ring;
+    box-shadow: 0 0 0 2px rgba($ring, 0.2);
+  }
+}
+
+.status-container {
+  padding-top: 1rem;
+  border-top: 1px solid $border;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.status-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $foreground;
+}
+
+.status-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.status-label {
+  font-size: 0.875rem;
+  color: $muted-foreground;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+
+  &--brand {
+    background-color: rgba($primary, 0.1);
+    color: $primary;
+  }
+
+  &--valid {
+    background-color: rgba(34, 197, 94, 0.1); // green-500
+    color: #22c55e;
+  }
+
+  &--invalid {
+    background-color: rgba($destructive, 0.1);
+    color: $destructive;
+  }
+
+  .badge-icon {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+}
