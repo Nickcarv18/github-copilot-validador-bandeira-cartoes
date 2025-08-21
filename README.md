@@ -101,6 +101,6 @@ Acesse [http://localhost:4200](http://localhost:4200) no navegador para visualiz
 
 A aplicação está disponível para acesso e teste através do link abaixo:
 
-**[https://Nickcarv18.github.io/github-copilot-validador-bandeira-cartoes/](https://Nickcarv18.github.io/github-copilot-validador-bandeira-cartoes/)**
+**[https://nickcarv18.github.io/github-copilot-validador-bandeira-cartoes/](https://nickcarv18.github.io/github-copilot-validador-bandeira-cartoes/)**
 
-[![Deploy](https://img.shields.io/badge/Acessar%20Aplicação-Live-brightgreen)](https://Nickcarv18.github.io/github-copilot-validador-bandeira-cartoes/)
+[![Deploy](https://img.shields.io/badge/Acessar%20Aplicação-Live-brightgreen)](https://nickcarv18.github.io/github-copilot-validador-bandeira-cartoes/)
